@@ -11,7 +11,7 @@ def lambda_handler(event, context):
     logging.basicConfig(filename=log_file_name, level=logging.DEBUG)
     logger = logging.getLogger(__name__)
     os.chdir("./")
-    command = "./function.sh"
+    command = "/var/task/MASA-OpenMP/masa-openmp-1.0.1.1024/masa-openmp /var/task/sequence.fasta /var/task/sequence2.fasta"
     r = subprocess.run(command.split(), capture_output=True)
     logger.info(f'Executed run with return code: {r.returncode}')
     s3 = boto3.client('s3')
