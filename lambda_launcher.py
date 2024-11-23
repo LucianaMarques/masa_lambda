@@ -7,7 +7,7 @@ class LambdaLauncher():
     def __init__(self):
         print("Started Lambda Launcher")
         #self.logger = logging.Logger() TODO: setup logger
-        self.client = boto3.client('lambda')
+        self.client = boto3.client('lambda', region_name='us-east-1')
 
 
     def register_function(self, function_name, runtime, role_arn, handler, zip_file_path):
